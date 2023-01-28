@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider} from "@chakra-ui/react";
+import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider, GridItem} from "@chakra-ui/react";
 import axios from "axios";
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
@@ -139,11 +139,16 @@ export default function Home() {
           spacing={{ base: 5, lg: 8 }} >
 
          
-            <Link href="/SinglePage">
+
+            {/* <Link href="/SinglePage"> */}
               <Grid  className={styles.grids} >
+
+            {/* <Link href="/SinglePage" > */}
+
+              {/* <Grid  xs={2} sm={4} md={4} > */}
               {data.map((el)=>
-        
-                <Box key={el._id} borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
+               <Link key={el._id} href="/SinglePage">
+                <Box  borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
                   textAlign="center"
                   style={{
                     padding: "25px 1px",
@@ -166,9 +171,10 @@ export default function Home() {
                    {el.university}
                   </Text>
                 </Box>
+                </Link>
                   )}
               </Grid>
-            </Link>
+            {/* </Link> */}
         </SimpleGrid>
       </Box>
         </div>

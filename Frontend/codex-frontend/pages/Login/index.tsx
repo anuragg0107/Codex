@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import Head from 'next/head'
+
 import {
   Box,
   Button,
@@ -63,6 +65,7 @@ const Login = () => {
     }
   };
   return (
+
     <>
     <Head>
     <title>Login Page</title>
@@ -77,6 +80,8 @@ const Login = () => {
         <Image src='https://cdn.dribbble.com/users/2234430/screenshots/8587843/media/5a7b6b3be7edd17ae98a25d010277e62.gif' alt='login' />
       </Box>
       <Stack className={Styles.form}>
+    <Box  margin="auto" w="100%" minH="100%" className={Styles.bg}>
+      <Stack className={Styles.form} w="40%" spacing={20}>
         <Box>
           <FormControl isRequired isInvalid={isError.email}>
             <Input
@@ -92,6 +97,7 @@ const Login = () => {
           </FormControl>
         </Box>
         <Box display="flex" >
+       {/* / <Box display="flex" gap={10}> */}
           <FormControl isInvalid={isError.password} isRequired>
             <Input
               type="password"
@@ -115,9 +121,12 @@ const Login = () => {
       </Button>
       </Stack>
     </Box>
+    </Stack>
+   </Box>
     </main>
     </>
     
   );
 };
 export default Login;
+

@@ -80,6 +80,7 @@ const Signup = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="https://i.postimg.cc/jqWWx3m2/learningplate.png" />
     </Head>
+
     <main>
 
     <Box   className={Styles.bg}>
@@ -87,6 +88,9 @@ const Signup = () => {
         <Image src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6b5dc02a-210a-44c4-84d9-4c2c74d6e83d/d5t4wrc-bbc016c4-c336-4937-be0d-b8c1fba7336f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZiNWRjMDJhLTIxMGEtNDRjNC04NGQ5LTRjMmM3NGQ2ZTgzZFwvZDV0NHdyYy1iYmMwMTZjNC1jMzM2LTQ5MzctYmUwZC1iOGMxZmJhNzMzNmYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1lgz4NO3tl6gCad2TU5p7Q1T_Be-YXHenwuztdXlFeI' alt='login' />
       </Box>
       <Stack className={Styles.form} w="40%" >
+    <Box  margin="auto" w="100%" minH="100%" border="1px solid black" className={Styles.bg}>
+      <Stack className={Styles.form} w="40%" spacing={20}>
+
         <Text as="h1" textAlign="center">Register</Text>
         <Box>
           <FormControl isRequired isInvalid={isError.name}>
@@ -131,6 +135,7 @@ const Signup = () => {
           </FormControl>
         </Box>
         <Box display="flex" >
+        {/* <Box display="flex" gap={10}> */}
           <FormControl isInvalid={isError.password} isRequired>
             <Input
               type="password"
@@ -160,10 +165,11 @@ const Signup = () => {
       </Button>
       </Stack>
     </Box>
-
+    </Stack>
+    </Box>
     </main>
     </>
-   
-  );
+  )
 };
+
 export default Signup;
