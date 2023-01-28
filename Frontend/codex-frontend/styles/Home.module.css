@@ -150,6 +150,11 @@
   margin-right: 10px;
   border: 1px solid #007db8;
 }
+.grids{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
 
 @media only screen and (max-width: 415px) and (min-width:280px)  {
   .loginbutton{
@@ -185,5 +190,10 @@
     object-fit: cover;
     font-size: 14px;
   }
-
+  .grids{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 40px;
+  }
+  
 }

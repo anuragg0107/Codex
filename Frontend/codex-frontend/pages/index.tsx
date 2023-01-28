@@ -132,15 +132,15 @@ export default function Home() {
           <Button > Java Backend</Button>
           <Button >Data Science</Button>
          </Box>
-         <Box  w={'90%'} mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} mb={20}>
+         <Box  w={'90%'} mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} mb={20} >
         <Divider />
         <SimpleGrid
           columns={{ base: 1, md: 2, xl: 3 }}
           spacing={{ base: 5, lg: 8 }} >
 
          
-            {/* <Link > */}
-              <Grid  xs={2} sm={4} md={4} >
+            <Link href="/SinglePage">
+              <Grid  className={styles.grids} >
               {data.map((el)=>
         
                 <Box key={el._id} borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
@@ -168,7 +168,7 @@ export default function Home() {
                 </Box>
                   )}
               </Grid>
-            {/* </Link> */}
+            </Link>
         </SimpleGrid>
       </Box>
         </div>
