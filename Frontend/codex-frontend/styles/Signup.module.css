@@ -1,0 +1,37 @@
+.form {
+  margin: auto;
+  height: 80vh;
+  top: 20%;
+  right: 30%;
+}
+.bg {
+  background-image: url("https://media.istockphoto.com/id/1013435204/photo/businessman-filling-online-registration-form.jpg?s=612x612&w=0&k=20&c=OqVxHQngPfPHNV9baIcqChpiL7Iv5G86bK5Pg0urbTc=");
+position: absolute;
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.form > div > div,
+.select {
+  height: 50px;
+  width: 100%;
+}
+.form > div > div > input,
+.select > select {
+  height: 80%;
+  width: 100%;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 0 1vh;
+}
+.form > button {
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  padding: 1vh 2vh;
+}

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider} from "@chakra-ui/react";
+import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider, GridItem} from "@chakra-ui/react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
@@ -122,7 +122,7 @@ export default function Home() {
                 <Image src='https://i.postimg.cc/9fbdr6rs/get-with-open-edx.png' alt='empower image' />
                </Box>
           </Box>
-          <Text className={styles.new}><Text className={styles.new1}>New</Text>on learningplate</Text>
+          <Text className={styles.new}><span className={styles.new1}>New</span>on learningplate</Text>
          <Box className={styles.buttons}>
           <Button >Bushiness</Button>
           <Button >Full Stack Web developer</Button>
@@ -136,7 +136,7 @@ export default function Home() {
           spacing={{ base: 5, lg: 8 }}
         >
             {/* <Link > */}
-              <Grid item xs={2} sm={4} md={4} >
+              <GridItem  xs={2} sm={4} md={4} >
                 <Box borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
                   textAlign="center"
                   style={{
@@ -160,7 +160,7 @@ export default function Home() {
                     {`Rs.1000`}
                   </Text>
                 </Box>
-              </Grid>
+              </GridItem>
             {/* </Link> */}
         </SimpleGrid>
       </Box>
