@@ -66,7 +66,7 @@ export default function Home() {
          </Box>
          <Box className={styles.trusted}>
           <Box>
-            <Text as='h2'>Trusted by top organizations worldwide</Text>
+            <Text as='h2'>Trusted by top organizations worldwide.</Text>
          <figure>
           <UnorderedList>
             <ListItem>
