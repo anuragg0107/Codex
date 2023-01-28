@@ -55,7 +55,7 @@ export default function Home() {
          <Box className={styles.deliver}>
           <Box className={styles.data}>
            <Text as='h1'>
-           Deliver inspiring learning experiences <strong>on any scale</strong>
+           Deliver inspiring learning experiences <strong>on any scale.</strong>
            </Text>
            <Text>
            Enable online campuses, instructor-led courses,
