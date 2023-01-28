@@ -3,26 +3,29 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider} from "@chakra-ui/react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Link from 'next/link'
 import { useEffect, useState } from 'react';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  // const [data,setData]=useState([])
-  // const [category,setCategory]=useState("all")
+  const [data,setData]=useState([])
+  const [category,setCategory]=useState("all")
 
-  // const getData=()=>{
-  //   if(category !== "all"){
-  //     axios.get(`https://fancy-gray-lion.cyclic.app/${category}`)
-  //     .then((data)=>setData(data.data))
-  //     .catch((err)=>console.log(err))
-  //   }
-  //   else{
-  //     axios.get(`https://fancy-gray-lion.cyclic.app/`)
-  //     .then((data)=> setData(data.data))
-  //     .catch((err)=>console.log(err))
-  //   }
-  // }
+   const getData=()=>{
+    // if(category !== "all"){
+    //   axios.get(`https://fancy-gray-lion.cyclic.app/${ai}`)
+    //   .then((data)=>setData(data.data))
+    //   .catch((err)=>console.log(err))
+    // }
+    // else{
+      axios.get(`https://fancy-gray-lion.cyclic.app/ai`)
+    .then((data)=> setData(data.data.aidata))
+    .catch((err)=>console.log(err))
+    // }
+  }
+  useEffect(()=>{
+    getData()
+  },[])
   // useEffect(()=>{
   //  getData(category)
   // },[category])
@@ -44,8 +47,8 @@ export default function Home() {
          <Image src='https://i.postimg.cc/jqWWx3m2/learningplate.png' alt='learningplate' />
          </Box>
          <Box className={styles.loginbutton}>
-           <Button>Login</Button>
-           <Button>Register</Button>
+     <Link href="/Login"><Button>Login</Button></Link>  
+          <Link href='/Signup'> <Button>Register</Button></Link>
          </Box>
 
          </Box>
@@ -122,7 +125,7 @@ export default function Home() {
                 <Image src='https://i.postimg.cc/9fbdr6rs/get-with-open-edx.png' alt='empower image' />
                </Box>
           </Box>
-          <Text className={styles.new}><Text className={styles.new1}>New</Text>on learningplate</Text>
+          <Text className={styles.new}><span className={styles.new1}>New</span>on learningplate</Text>
          <Box className={styles.buttons}>
           <Button >Bushiness</Button>
           <Button >Full Stack Web developer</Button>
@@ -133,33 +136,37 @@ export default function Home() {
         <Divider />
         <SimpleGrid
           columns={{ base: 1, md: 2, xl: 3 }}
-          spacing={{ base: 5, lg: 8 }}
-        >
+          spacing={{ base: 5, lg: 8 }} >
+
+         
             {/* <Link > */}
-              <Grid item xs={2} sm={4} md={4} >
-                <Box borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
+              <Grid  xs={2} sm={4} md={4} >
+              {data.map((el)=>
+        
+                <Box key={el._id} borderRadius={'30px'} boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}
                   textAlign="center"
                   style={{
                     padding: "25px 1px",
                   }}
                 >
-                  <Image h={{base:"250px",sm:"400px",md:"350px",lg:"500px",xl:"500px",}}  src="" alt="Products" />
+                  <Image h={{base:"250px",sm:"400px",md:"350px",lg:"500px",xl:"500px",}}  src={el.imgurl} alt={el.title} />
                   <Text
                     style={{
                       fontWeight: 600,
                       color: "#212121",
                     }}
                   >
-                   fgtf
+                  {el.title}
                   </Text>
                   <Text
                     style={{
                       color: "green",
                     }}
                   >
-                    {`Rs.1000`}
+                   {el.university}
                   </Text>
                 </Box>
+                  )}
               </Grid>
             {/* </Link> */}
         </SimpleGrid>
