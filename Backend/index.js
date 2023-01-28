@@ -8,6 +8,7 @@ const aiRoutes = require('./routes/AiRoutes');
 const businessRoutes = require('./routes/businessRoutes');
 const DSRoutes = require('./routes/DataScienceRoutes');
 const educationRoutes = require('./routes/EducationRoutes');
+const ICRoutes = require('./routes/ICRoutes')
 
 dotenv.config({ path: './config.env' });
 
@@ -23,6 +24,7 @@ app.use('/ai', aiRoutes);
 app.use('/business', businessRoutes);
 app.use('/datascience', DSRoutes);
 app.use('/education', educationRoutes);
+app.use('/IC', ICRoutes);
 
 mongoose.set("strictQuery", false);
 

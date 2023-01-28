@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const educationSchema = mongoose.Schema({
+const webDevelopementSchema = mongoose.Schema({
     imgurl: {
         type: String,
     },
@@ -10,11 +10,11 @@ const educationSchema = mongoose.Schema({
     university: {
         type: String,
     },
-    education: {
+    webDevelopement: {
         type: String,
     }
 });
 
-const educationData = mongoose.model('educationData', educationSchema);
+const webDevelopementData = mongoose.model('webDevelopementData', webDevelopementSchema);
 
-module.exports = educationData;
+module.exports = webDevelopementData;
