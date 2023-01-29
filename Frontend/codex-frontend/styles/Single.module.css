@@ -11,9 +11,7 @@
   padding: 0 2vh;
 }
 .navbarimage{
-  /* margin-left: 50px; */
  width: 250px;
- /* height: 250px; */
  border-radius: 10px;
 
 }
@@ -150,6 +148,7 @@
   .detail > div:nth-child(1) {
     width: 100%;
   }
+.detail > div:first-child > h1 {font-size: 32px;}
   .detail > div:nth-child(2) {
     display: none;
   }
@@ -167,6 +166,21 @@
     flex-direction: column;
     gap: 16px;
   }
+  .navbarimage{
+    width: 150px;
+  }
+  .loginbutton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   }
+   .loginbutton button{
+     border: 1px solid #007db8;
+     margin-left: 10px;
+     width: fit-content;
+   }
 }
 
 @media only screen and (min-width: 426px) and (max-width: 780px) {

@@ -8,8 +8,8 @@ function Loading(){
   const router=useRouter()
   const [loading,setLoading]=useState(false)
   useEffect(()=>{
-    const handleStart=(el)=>(el !==router.asPath) && setLoading(true)
-    const handleComplete=(el)=> (el === router.asPath) && setTimeout(()=>(setLoading(false)))
+    const handleStart=(url:String)=>(url !==router.asPath) && setLoading(true)
+    const handleComplete=(url:String)=> (url === router.asPath) && setTimeout(()=>(setLoading(false)))
    
     router.events.on('routeChangeStart',handleStart)
     router.events.on('routeChangeComplete',handleComplete)
@@ -32,7 +32,7 @@ function Loading(){
 
 export default function App({ Component, pageProps }: AppProps) {
   return ( <>
-   <Loading />
+   {/* <Loading /> */}
     <ChakraProvider>
  <Component {...pageProps} />
   </ChakraProvider>
