@@ -25,7 +25,8 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.0",
     "socket.io": "^4.5.4",
-    "socket.io-client": "^4.5.4"
+    "socket.io-client": "^4.5.4",
+    "vercel": "^28.14.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

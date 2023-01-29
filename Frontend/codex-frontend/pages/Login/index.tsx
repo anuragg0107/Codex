@@ -30,7 +30,7 @@ const Login = () => {
     username: false,
     password: false,
   });
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };

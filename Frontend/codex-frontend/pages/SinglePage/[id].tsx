@@ -45,7 +45,8 @@ const SinglePage: NextPage = () => {
   };
   const user = initialState.user;
   const [username, setUsername] = useState(user.username || "");
-    const [data,setData]=useState({})
+  const [data, setData] = useState({})
+  // const { title } = data;
   const router = useRouter();
   const { id } = router.query;
   //   console.log(id);
@@ -58,7 +59,7 @@ const SinglePage: NextPage = () => {
   });
   const [show, setShow] = useState(false);
   const toast = useToast();
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
@@ -73,7 +74,7 @@ const SinglePage: NextPage = () => {
       PostData();
   };
 
-    const getalldata = async (id) => {
+    const getalldata = async (id:any) => {
         try {
           
             const res = await axios(

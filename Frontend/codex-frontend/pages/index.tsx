@@ -75,7 +75,7 @@ export default function Home() {
       isClosable: true,
     });
   };
-  const Gotodetail = (pid) => {
+  const Gotodetail = (pid:any) => {
     if (username === "") {
       toast({
         title: " Due to Security Purpose redirect to login page",
@@ -260,7 +260,7 @@ export default function Home() {
               <Grid className={styles.grids}>
                 {/* <Link href="/SinglePage" > */}
                 {/* <Grid  xs={2} sm={4} md={4} > */}
-                {data.map((el) => (
+                {data.map((el:any) => (
                   // <Link key={el._id} href={`/SinglePage/${el._id}`}>
                   <Box
                   key={el._id}
@@ -307,11 +307,11 @@ export default function Home() {
               {/* </Link> */}
             </SimpleGrid>
           </Box>
-          <Link href="/Chat">
+          {/* <Link href="/Chat">
             <button className={styles.chatbox}>
               <AiFillWechat size={35} />
             </button>
-          </Link>
+          </Link> */}
         </div>
       </main>
     </>
