@@ -49,12 +49,16 @@
     border-radius: 5px;
     padding: 0 1vh;
   }
-  .form > button {
+  .btn{
+    display:flex ;justify-content:space-evenly
+  }
+  .btn > button ,.btn>a>button{
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     color: white;
     padding: 1vh 2vh;
+    width: 150px;
   }
 
   @media only screen and (max-width: 426px) and (min-width:280px)  {
@@ -67,6 +71,9 @@ min-height: 560px;
     .images{width: 100%;padding: 6vh 0 0 0;height: 50%;}
     .form>div:nth-child(4){
       margin-bottom: 3vh;
+    }
+    .btn > button ,.btn>a>button{
+      width: 140px;
     }
   }
 @media only screen and (min-width: 426px) and (max-width:780px)  {

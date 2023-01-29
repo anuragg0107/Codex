@@ -17,8 +17,10 @@ import {
 import Styles from "@/styles/Login.module.css";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const Login = () => {
   const toast = useToast();
+  const router = useRouter();
   const [islogin, setlogin] = useState(false);
   const [input, setInput] = useState({
     username: "",
@@ -65,6 +67,9 @@ const Login = () => {
         isClosable: true,
       });
       setlogin(true);
+     
+  router.push('/')
+
     } catch (err) {
       setlogin(false);
       console.log(err);
@@ -139,13 +144,22 @@ const Login = () => {
                 )}
               </FormControl>
             </Box>
+            <Box className={Styles.btn}>
             <Button
               colorScheme="white"
               bg="rgb(0, 181, 181)"
               onClick={handleError}
               >
               Login
-            </Button>
+              </Button>
+              <Link href="/Signup">
+            <Button
+              colorScheme="white"
+              bg="rgb(0, 181, 181)"
+              >
+              Create Account
+            </Button></Link>
+                </Box>
           </Stack>
         </Box>
       </main>

@@ -28,7 +28,20 @@ import axios from "axios";
 //   title: "MBA Essentials",
 //   desc: "Build a toolkit of key strategic, managerial, and leadership skills for business.",
 // };
+const getFromLocalStorage = (key: string) => {
+  if (!key || typeof window === "undefined") {
+    return "";
+  }
+  return localStorage.getItem(key);
+};
 const SinglePage: NextPage = () => {
+  const initialState = {
+    user: getFromLocalStorage("userData")
+      ? JSON.parse(getFromLocalStorage("userData") || "{}")
+      : [],
+  };
+  const user = initialState.user;
+  const [username, setUsername] = useState(user.username || "");
     const [data,setData]=useState({})
   const router = useRouter();
   const { id } = router.query;
@@ -88,6 +101,18 @@ const SinglePage: NextPage = () => {
   useEffect(() => {
     getalldata(id);
   }, [id]);
+  const logoutuser = () => {
+    localStorage.clear();
+    setUsername("");
+    
+    toast({
+      title: " Logout Successfully",
+      description: "Please Login ",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
   return (
     <>
       <Head>
@@ -100,14 +125,32 @@ const SinglePage: NextPage = () => {
         />
       </Head>
       <main>
-        <Box className={Styles.navbarimage}>
-          <Link href="/">
-            <Image
-              src="https://i.postimg.cc/jqWWx3m2/learningplate.png"
-              alt="learningplate"
-            />
-          </Link>
-        </Box>
+      <Box className={Styles.navbar}>
+            <Link href="/"><Box className={Styles.navbarimage}>
+              <Image
+                src="https://i.postimg.cc/jqWWx3m2/learningplate.png"
+                alt="learningplate"
+              />
+            </Box></Link>
+            <Box className={Styles.loginbutton}>
+              {username === "" ? (
+                <Link href="/Login">
+                  <Button>Login</Button>
+                </Link>
+              ) : (
+                <Button mr={username!==""?"10px":0}>{username}</Button>
+              )}
+
+              {username === "" ? (
+                <Link href="/Signup">
+                  {" "}
+                  <Button>Register</Button>
+                </Link>
+              ) : (
+                <Button onClick={logoutuser}>Logout</Button>
+              )}
+            </Box>
+          </Box>
         <Box className={Styles.detail}>
           <Box>
             <Text as="h1">{data.title}</Text>

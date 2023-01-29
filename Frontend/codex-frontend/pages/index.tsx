@@ -99,7 +99,7 @@ export default function Home() {
                   <Button>Login</Button>
                 </Link>
               ) : (
-                <Button>{username}</Button>
+                <Button mr={username!==""?"10px":0}>{username}</Button>
               )}
 
               {username === "" ? (
