@@ -103,15 +103,7 @@
 <br/>
 
 
-## Login Page :
 
-<h3>Users can login using their input credentials which provided while signup.</h3>
-<br/>
-<div align="center">
-<img width="60%" src="https://user-images.githubusercontent.com/107460451/215320938-020eaed3-0f47-4ef5-afa1-a883cf7bf188.jpg" alt ="signup page" />
-</div>
-
-<br/>
 
 <br/>
 
