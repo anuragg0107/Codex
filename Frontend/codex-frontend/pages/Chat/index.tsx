@@ -8,17 +8,21 @@ import Link from "next/link";
 const socket = io('https://hackathon-data.onrender.com/');
 
 
+const getFromLocalStorage = (key: string) => {
+    if (!key || typeof window === 'undefined') {
+        return ""
+    }
+    return localStorage.getItem(key)
+  }
+
+const initialState = { user: getFromLocalStorage("userData") ? JSON.parse(getFromLocalStorage("userData") || '{}') : [] };
+const name = initialState.user.fullname || "Chat Bot"
+
 
 function Chat() {
 
     const [temp, setTemp] = useState("");
-    const [name, setName] = useState("Anirudha")
     const [msgArea, setMsgArea] = useState([])
-    // const [type, setType] = useState("");
-
-    // if (name === undefined) {
-    //     let temp = prompt('Please enter your name');
-    // }
 
     const handleText = (e) => {
         if (e.key === "Enter") {

@@ -12,17 +12,18 @@ import {
   Stack,
   Image,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import Styles from "@/styles/Login.module.css";
 import axios from "axios";
 import Link from "next/link";
-
 const Login = () => {
+  const toast = useToast();
+  const [islogin, setlogin] = useState(false);
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
-
   const [isError, setError] = useState({
     username: false,
     password: false,
@@ -55,8 +56,17 @@ const Login = () => {
         "https://fancy-gray-lion.cyclic.app/login",
         input
       );
-      console.log(res);
+      localStorage.setItem("userData",JSON.stringify(res.data.user));
+      toast({
+        title: "Successfully Login",
+        description: "Welcome to Learning Plate ",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setlogin(true);
     } catch (err) {
+      setlogin(false);
       console.log(err);
     }
   };
@@ -133,7 +143,7 @@ const Login = () => {
               colorScheme="white"
               bg="rgb(0, 181, 181)"
               onClick={handleError}
-            >
+              >
               Login
             </Button>
           </Stack>
