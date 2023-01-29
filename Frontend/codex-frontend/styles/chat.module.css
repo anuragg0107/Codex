@@ -76,3 +76,6 @@ section.chatsection {
     color: #333;
     font-size: 14px;
 }
+.message p {
+    width: 250px;
+}

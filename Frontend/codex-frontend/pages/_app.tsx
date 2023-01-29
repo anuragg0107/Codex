@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import {useState,useEffect} from "react"
-import {Image} from "@chakra-ui/react"
+import { Image } from "@chakra-ui/react"
 function Loading(){
   const router=useRouter()
   const [loading,setLoading]=useState(false)
@@ -33,7 +33,7 @@ function Loading(){
 export default function App({ Component, pageProps }: AppProps) {
   return ( <>
    <Loading />
-     <ChakraProvider>
+    <ChakraProvider>
  <Component {...pageProps} />
   </ChakraProvider>
   </>

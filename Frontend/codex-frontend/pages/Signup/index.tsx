@@ -12,22 +12,24 @@ import {
   Text,
   Image,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import Styles from "@/styles/Signup.module.css"
 import axios from "axios";
 import Link from "next/link";
-
+const initialState={
+  fullname: "",
+  email: "",
+  username: "",
+  password: "",
+  country:"India"
+}
 const Signup = () => {
-  const [input, setInput] = useState({
-    name: "",
-    email: "",
-    username: "",
-    password: "",
-    country:"India"
-  });
+  const toast = useToast();
+  const [input, setInput] = useState(initialState);
 
   const [isError, setError] = useState({
-    name: false,
+    fullname: false,
     email: false,
     username: false,
     password: false,
@@ -38,35 +40,33 @@ const Signup = () => {
     setInput({ ...input, [name]: value });
   };
   const handleError = () => {
-    let Error = input.name === "";
     setError({
       ...isError,
-      name: input.name === "",
+      fullname: input.fullname === "",
       email: input.email === "",
       username: input.username === "",
       password: input.password === "",
     });
-    if (!Error) {
+    if (input.fullname !== "" && input.email !== "" && input.username !== ""&&input.password !== "") {
       CloseBox();
     }
   };
 
   const CloseBox = () => {
-    if (
-      !isError.name &&
-      !isError.email &&
-      !isError.username &&
-      !isError.password
-    ) {
-      //Send Post request for add new address
-      // onClick(false);
       Register();
-    }
   };
   const Register = async() => {
     try {
       let res = await axios.post("https://fancy-gray-lion.cyclic.app/register", input);
-      console.log(res);
+
+      toast({
+        title: "Successfully Register",
+        description: "Please Login ",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setInput(initialState)
      } catch (err) {
       console.log(err);
   }
@@ -97,14 +97,14 @@ const Signup = () => {
 
         <Text as="h1" style={{textAlign:"center",fontSize:"32px",fontWeight:600}}>Register</Text>
         <Box>
-          <FormControl isRequired isInvalid={isError.name}>
+          <FormControl isRequired isInvalid={isError.fullname}>
             <Input
-              value={input.name}
+              value={input.fullname}
               placeholder="Full Name"
               onChange={handleInputChange}
               name="name"
             />
-            {isError.name && (
+            {isError.fullname && (
               <FormErrorMessage color="red">Enter your full name</FormErrorMessage>
             )}
           </FormControl>
@@ -159,14 +159,23 @@ const Signup = () => {
             <option value="Albania">Albania</option>
             <option value="Andorra">Andorra</option>
           </select>
-        </Box>
+            </Box>
+            <Box className={ Styles.btn} >
       <Button
         colorScheme="white"
         bg="rgb(0, 181, 181)"
         onClick={handleError}
       >
         Create account
-      </Button>
+            </Button>
+            <Link href="/Login">
+      <Button
+        colorScheme="white"
+        bg="rgb(0, 181, 181)"
+      >
+        Login
+                </Button></Link>
+                </Box>
       </Stack>
     </Box>
     </main>
