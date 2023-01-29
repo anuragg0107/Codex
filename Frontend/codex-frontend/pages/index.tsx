@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {Text,Box,Image,Input,Button,Container,UnorderedList,ListItem, Grid,Stack,SimpleGrid,Divider, GridItem} from "@chakra-ui/react";
+import {Text,Box,Image,Button,Container,UnorderedList,ListItem, Grid,SimpleGrid,Divider} from "@chakra-ui/react";
 import axios from "axios";
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
@@ -11,26 +11,23 @@ export default function Home() {
   const [data,setData]=useState([])
   const [category,setCategory]=useState("all")
 
-   const getData=()=>{
-    // if(category !== "all"){
-    //   axios.get(`https://fancy-gray-lion.cyclic.app/${ai}`)
-    //   .then((data)=>setData(data.data))
-    //   .catch((err)=>console.log(err))
-    // }
-    // else{
-      axios.get(`https://fancy-gray-lion.cyclic.app/ai`)
-    .then((data)=> setData(data.data.aidata))
+   const getData=(category:string)=>{
+    if(category !== "all"){
+      // console.log(category)
+      axios.get(`https://fancy-gray-lion.cyclic.app/combined/filter?category=${category}`)
+      .then((data)=>setData(data.data.combineddata))
+      .catch((err)=>console.log(err))
+    }
+     else{
+      axios.get(`https://fancy-gray-lion.cyclic.app/combined`)
+    .then((data)=> setData(data.data.combineddata))
     .catch((err)=>console.log(err))
-    // }
+     }
   }
   useEffect(()=>{
-    getData()
-  },[])
-  // useEffect(()=>{
-  //  getData(category)
-  // },[category])
+    getData(category)
+  },[category])
 
-  // console.log(data)
 
   return (
     <>
@@ -127,24 +124,18 @@ export default function Home() {
           </Box>
           <Text className={styles.new}><span className={styles.new1}>New</span>on learningplate</Text>
          <Box className={styles.buttons}>
-          <Button >Bushiness</Button>
-          <Button >Full Stack Web developer</Button>
-          <Button > Java Backend</Button>
-          <Button >Data Science</Button>
+          <Button  onClick={()=>setCategory("ai")} >Artificial Intelligence </Button>
+          <Button  onClick={()=>setCategory("business")} >Business</Button>
+          <Button onClick={()=>setCategory("datascience")}  > Data Science</Button>
+          <Button onClick={()=>setCategory("webdevelopment")}>Web Development</Button>
          </Box>
          <Box  w={'90%'} mx={"auto"} pt={5} px={{ base: 2, sm: 12, md: 17 }} mb={20} >
         <Divider />
         <SimpleGrid
-          columns={{ base: 1, md: 2, xl: 3 }}
-          spacing={{ base: 5, lg: 8 }} >
-
-         
-
+        >
             {/* <Link href="/SinglePage"> */}
               <Grid  className={styles.grids} >
-
             {/* <Link href="/SinglePage" > */}
-
               {/* <Grid  xs={2} sm={4} md={4} > */}
               {data.map((el)=>
                <Link key={el._id} href="/SinglePage">
@@ -154,7 +145,7 @@ export default function Home() {
                     padding: "25px 1px",
                   }}
                 >
-                  <Image h={{base:"250px",sm:"400px",md:"350px",lg:"500px",xl:"500px",}}  src={el.imgurl} alt={el.title} />
+                  <Image h={{base:"240px",sm:"200px",md:"250px",lg:"270px",xl:"300px",}}  src={el.imgurl} alt={el.title} />
                   <Text
                     style={{
                       fontWeight: 600,
