@@ -113,37 +113,6 @@
 
 <br/>
 
-
-## Backend Courses :
-
-<h3>Here users can learn web backend courses</h3>
-<br/>
-
-<br/>
-<div align="center">
-<img width="60%" src="https://user-images.githubusercontent.com/107460451/215321402-bbaba1da-a110-433e-aa9f-2af00278fafe.jpg" alt ="signup page" />
-</div>
-
-<br/>
-
-
-## Users Profile :
-
-<h3>Here users can manage their playlist of the purchased courses .</h3>
-<br/>
-
-<br/>
-<div align="center">
-<img width="60%" src="https://user-images.githubusercontent.com/107460451/215321825-0369ba94-926d-4968-becb-c48cbc622d85.jpg" alt ="signup page" />
-</div>
-
-
-<br/>
-<br/>
-
-
-
-
 <br/>
 
 ## Our Learnings during Codex
