@@ -28,6 +28,9 @@ import axios from "axios";
 //   title: "MBA Essentials",
 //   desc: "Build a toolkit of key strategic, managerial, and leadership skills for business.",
 // };
+const initialStates={ firstname: "",
+lastname: "",
+email: "",}
 const getFromLocalStorage = (key: string) => {
   if (!key || typeof window === "undefined") {
     return "";
@@ -46,11 +49,7 @@ const SinglePage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   //   console.log(id);
-  const [input, setInput] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-  });
+  const [input, setInput] = useState(initialStates);
 
   const [isError, setError] = useState({
     firstname: false,
@@ -71,22 +70,9 @@ const SinglePage: NextPage = () => {
       email: input.email === "",
     });
     if (input.firstname !== "" && input.lastname !== "" && input.email !== "")
-      CloseBox();
+      PostData();
   };
 
-  const CloseBox = () => {
-    if (!isError.firstname && !isError.lastname && !isError.email) {
-      //Send Post request for add new address
-      // onClick(false);
-      toast({
-        title: "Successfully Send",
-        description: "Our team contact as soon as possible.",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
-    }
-  };
     const getalldata = async (id) => {
         try {
           
@@ -98,9 +84,29 @@ const SinglePage: NextPage = () => {
             console.log(err);
             }
   };
+  const PostData = async() => {
+    try {
+      let res = await axios.post("https://hackathon-data.onrender.com/userdata", input);
+
+      toast({
+          title: "Successfully Send",
+          description: "Our team contact as soon as possible.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+      });
+      // setInput(initialStates)
+      setShow(false)
+     } catch (err) {
+      console.log(err);
+  }
+}
   useEffect(() => {
     getalldata(id);
-  }, [id]);
+    if (username === "") {
+      router.push("/Login")
+    }
+  }, [id,username]);
   const logoutuser = () => {
     localStorage.clear();
     setUsername("");
@@ -143,7 +149,6 @@ const SinglePage: NextPage = () => {
 
               {username === "" ? (
                 <Link href="/Signup">
-                  {" "}
                   <Button>Register</Button>
                 </Link>
               ) : (

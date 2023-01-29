@@ -19,6 +19,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AiFillWechat } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 const getFromLocalStorage = (key: string) => {
@@ -34,6 +35,7 @@ export default function Home() {
       ? JSON.parse(getFromLocalStorage("userData") || "{}")
       : [],
   };
+  const router = useRouter();
   const toast=useToast()
   const [data, setData] = useState([]);
   const [category, setCategory] = useState("all");
@@ -73,6 +75,20 @@ export default function Home() {
       isClosable: true,
     });
   };
+  const Gotodetail = (pid) => {
+    if (username === "") {
+      toast({
+        title: " Due to Security Purpose redirect to login page",
+        description: "Please Login ",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      router.push("/Login")
+    } else {
+      router.push(`/SinglePage/${pid}`)
+    }
+  }
   return (
     <>
       <Head>
@@ -245,8 +261,9 @@ export default function Home() {
                 {/* <Link href="/SinglePage" > */}
                 {/* <Grid  xs={2} sm={4} md={4} > */}
                 {data.map((el) => (
-                  <Link key={el._id} href={`/SinglePage/${el._id}`}>
-                    <Box
+                  // <Link key={el._id} href={`/SinglePage/${el._id}`}>
+                  <Box
+                  key={el._id}
                       borderRadius={"30px"}
                       boxShadow={
                         "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
@@ -255,6 +272,7 @@ export default function Home() {
                       style={{
                         padding: "25px 1px",
                       }}
+                      onClick={()=>Gotodetail(el._id)}
                     >
                       <Image
                         h={{
@@ -283,7 +301,7 @@ export default function Home() {
                         {el.university}
                       </Text>
                     </Box>
-                  </Link>
+                  // </Link>
                 ))}
               </Grid>
               {/* </Link> */}
