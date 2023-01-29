@@ -16,3 +16,19 @@ exports.getAllAiData = async (req, res) => {
         })
     }
 }
+
+exports.getSingleAiData = async (req, res) => {
+    try {
+        let data = await AiData.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "fail",
+            err
+        })
+    }
+}

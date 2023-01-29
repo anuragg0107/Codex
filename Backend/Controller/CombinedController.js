@@ -33,3 +33,19 @@ exports.getFilteredData = async (req, res) => {
         })
     }
 }
+
+exports.getSingleCombinedData = async (req, res) => {
+    try {
+        let data = await CombinedData.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "fail",
+            err
+        })
+    }
+}

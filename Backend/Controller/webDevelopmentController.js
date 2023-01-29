@@ -16,3 +16,19 @@ exports.getAllwebDevelopmentData = async (req, res) => {
         })
     }
 }
+
+exports.getSinglewebDevelopmentData = async (req, res) => {
+    try {
+        let data = await webDevelopmentData.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data
+        })
+    } catch (err) {
+        res.status(400).json({
+            status: "fail",
+            err
+        })
+    }
+}

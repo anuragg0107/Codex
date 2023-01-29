@@ -15,11 +15,16 @@ dotenv.config({ path: './config.env' });
 
 const app = express();
 app.use(express.json());
-const http = require('http').Server(app)
+const http = require('http').Server(app);
+
+app.use(cors({
+  origin: "*"
+}));
 
 const socketIO = require('socket.io')(http, {
   cors: {
-    origin: "*"
+    origin: "*",
+    Credential: true
   }
 })
 

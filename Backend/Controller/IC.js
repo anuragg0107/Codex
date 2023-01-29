@@ -16,3 +16,4 @@ exports.getAllICData = async (req, res) => {
         })
     }
 }
+
