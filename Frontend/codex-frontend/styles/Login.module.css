@@ -4,24 +4,27 @@
     width: 400px;
     margin-left: auto;
     margin-top: auto;
-    padding-top: 100px;
     /* border: 1px solid black; */
   }
   .navbarimage{
-    width: 250px;
-    border-radius: 10px;
-   
-   }
-   .navbarimage img{
-     object-fit: contain;
-   }
+   width: 250px;
+   border-radius: 10px;
+  
+  }
+  .navbarimage img{
+    object-fit: contain;
+  }
   .bg {
-    
    display: flex;
    justify-content: space-between;
-   
-    /* border: 1px solid red; */
+    padding: 17vh 0;
     
+  }
+  #main{
+    background-image: url("https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg");
+    height: 100%;
+    background-size: cover;
+
   }
   .images{
     width: 50%;
@@ -31,16 +34,15 @@
     align-items: center;
   }
   .images>img{
-    height: 50%;
-    width: 50%;
+    height: 70%;
+    width: 70%;
+    border-radius: 10px;
   }
-  .form > div > div,
-  .select {
+  .form > div > div{
     height: 50px;
     width: 100%;
   }
-  .form > div > div > input,
-  .select > select {
+  .form > div > div > input{
     height: 80%;
     width: 100%;
     font-size: 1.2rem;
@@ -58,10 +60,11 @@
   @media only screen and (max-width: 426px) and (min-width:280px)  {
     .bg{
       flex-direction: column;
-    padding: 0 2vh;
+    padding: 7vh 2vh;
+min-height: 560px;
     }
     .form{padding: 0; width: 100%;}
-    .images{width: 100%;padding: 10vh 0 0 0;}
+    .images{width: 100%;padding: 6vh 0 0 0;height: 50%;}
     .form>div:nth-child(4){
       margin-bottom: 3vh;
     }
@@ -69,5 +72,10 @@
 @media only screen and (min-width: 426px) and (max-width:780px)  {
   .bg{
     padding: 0 2vh;
+min-height: 560px;
+
   }
+  .images{padding: 0;}
+
+  .images>img{width: 80%;height: 50%;}
 }
