@@ -102,7 +102,7 @@ const Signup = () => {
               value={input.fullname}
               placeholder="Full Name"
               onChange={handleInputChange}
-              name="name"
+              name="fullname"
             />
             {isError.fullname && (
               <FormErrorMessage color="red">Enter your full name</FormErrorMessage>
