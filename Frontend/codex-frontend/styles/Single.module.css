@@ -1,12 +1,26 @@
-.navbarimage {
+.navbar{
+  display: flex;
   width: 100%;
-  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  align-items: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0 2vh;
 }
-.navbarimage img {
+.navbarimage{
+  /* margin-left: 50px; */
+ width: 250px;
+ /* height: 250px; */
+ border-radius: 10px;
+
+}
+.navbarimage img{
   object-fit: contain;
-  width: 250px;
 }
+
 .detail {
   display: flex;
   /* border: 1px solid black; */
